@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>연습문제</title>
+</head>
+<body>
+	<h2>학번,이름,학년,선택과목을 입력하세요</h2>
+	<form>
+		<p>
+			<label>학번: 
+				<input type="text" name="code">
+			</label>
+		</p>
+		<p>
+			<label>이름: 
+				<input type="text" name="name">
+			</label>
+		</p>
+		<p>
+			학년:
+			<input type="radio" name="grade" value="1" checked>1학년
+			<input type="radio" name="grade" value="2">2학년
+			<input type="radio" name="grade" value="3">3학년
+			<input type="radio" name="grade" value="4">4학년
+		</p>
+		<p>
+			<label>선택과목:
+				<select name="language">
+					<option value="java">java</option>
+					<option value="python">python</option>
+					<option value="c++">c++</option>
+				</select>
+			</label>
+		</p>
+		<p>
+			<input type="submit" value="입력완료">
+			<input type="reset"  value="다시쓰기">
+		 </p>
+	</form>
+
+
+</body>
+</html>
