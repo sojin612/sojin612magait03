@@ -12,7 +12,8 @@ import org.jsoup.select.Elements;
 public class CrawlingEx02 {
 
 	public static void main(String[] args) {
-
+		
+		
 		// 한페이지를 크롤링
 		try {
 			
@@ -51,7 +52,6 @@ public class CrawlingEx02 {
 			e.printStackTrace();
 		}
 
-		
 	}
 
 }

@@ -11,11 +11,8 @@ import javax.servlet.jsp.tagext.TryCatchFinally;
 
 public class BoardDAO2 {
 
-	private BoardDAO2() {
-	}
-
+	private BoardDAO2() {}
 	private static BoardDAO2 instance = new BoardDAO2();
-
 	public static BoardDAO2 getInstance() {
 		return instance;
 	}
@@ -64,24 +61,9 @@ public class BoardDAO2 {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-				}
-			}
-			if (pstmt != null) {
-				try {
-					pstmt.close();
-				} catch (SQLException e) {
-				}
-			}
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-				}
-			}
+			if (rs != null) {try {rs.close();} catch (SQLException e) {}}
+			if (pstmt != null) {try {pstmt.close();} catch (SQLException e) {}}
+			if (conn != null) {try {conn.close();} catch (SQLException e) {}}
 		}
 		return vec;
 	}
@@ -113,24 +95,9 @@ public class BoardDAO2 {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-				}
-			}
-			if (pstmt != null) {
-				try {
-					pstmt.close();
-				} catch (SQLException e) {
-				}
-			}
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-				}
-			}
+			if (rs != null) {try {rs.close();} catch (SQLException e) {}}
+			if (pstmt != null) {try {pstmt.close();} catch (SQLException e) {}}
+			if (conn != null) {try {conn.close();} catch (SQLException e) {}}
 		}
 		return model;
 	}
@@ -156,24 +123,9 @@ public class BoardDAO2 {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-				}
-			}
-			if (pstmt != null) {
-				try {
-					pstmt.close();
-				} catch (SQLException e) {
-				}
-			}
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-				}
-			}
+			if (rs != null) {try {rs.close();} catch (SQLException e) {}}
+			if (pstmt != null) {try {pstmt.close();} catch (SQLException e) {}}
+			if (conn != null) {try {conn.close();} catch (SQLException e) {}}
 		}
 		return model;
 
@@ -194,24 +146,9 @@ public class BoardDAO2 {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-				}
-			}
-			if (pstmt != null) {
-				try {
-					pstmt.close();
-				} catch (SQLException e) {
-				}
-			}
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-				}
-			}
+			if (rs != null) {try {rs.close();} catch (SQLException e) {}}
+			if (pstmt != null) {try {pstmt.close();} catch (SQLException e) {}}
+			if (conn != null) {try {conn.close();} catch (SQLException e) {}}
 		}
 		return isValid;
 
@@ -233,18 +170,8 @@ public class BoardDAO2 {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				try {
-					pstmt.close();
-				} catch (SQLException e) {
-				}
-			}
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-				}
-			}
+			if (pstmt != null) {try {pstmt.close();} catch (SQLException e) {}}
+			if (conn != null) {try {conn.close();} catch (SQLException e) {}}
 		}
 	}
 
@@ -264,18 +191,8 @@ public class BoardDAO2 {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				try {
-					pstmt.close();
-				} catch (SQLException e) {
-				}
-			}
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-				}
-			}
+			if (pstmt != null) {try {pstmt.close();} catch (SQLException e) {}}
+			if (conn != null) {try {conn.close();} catch (SQLException e) {}}
 		}
 		return isUpdate;
 
@@ -295,18 +212,8 @@ public class BoardDAO2 {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				try {
-					pstmt.close();
-				} catch (SQLException e) {
-				}
-			}
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-				}
-			}
+			if (pstmt != null) {try {pstmt.close();} catch (SQLException e) {}}
+			if (conn != null) {try {conn.close();} catch (SQLException e) {}}
 		}
 		return isDelete;
 	}
@@ -336,24 +243,9 @@ public class BoardDAO2 {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-				}
-			}
-			if (pstmt != null) {
-				try {
-					pstmt.close();
-				} catch (SQLException e) {
-				}
-			}
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-				}
-			}
+			if (rs != null) {try {rs.close();} catch (SQLException e) {}}
+			if (pstmt != null) {try {pstmt.close();} catch (SQLException e) {}}
+			if (conn != null) {try {conn.close();} catch (SQLException e) {}}
 		}
 		return vec;
 
