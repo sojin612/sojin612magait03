@@ -25,7 +25,7 @@ public class Test01 {
 		// 5. 방향 검사가 다끝나면 배열에서 삭제 
 		// 6. 도착이면 종료 
 		// 7. 배열에서 새로은 길을 꺼내서 2~6반복 
-		
+		//분석만
 		final int MAP_SIZE  = 5;
 		final int NORTH = 0;
 		final int EAST = 1;
