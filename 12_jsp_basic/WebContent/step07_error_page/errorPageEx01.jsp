@@ -38,7 +38,7 @@
 	 -->
 	<%
 	//500
-	System.out.println()
+	System.out.println();
 	
 	%>
 	<!-- 404에러 -->
