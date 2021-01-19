@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>ready함수</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+<script>
+	//방법1) JQUERY를 명시하는 방법
+	//jQuery(document).ready(function(){
+	//	$("body").css("background","black");
+	//});
+	
+	//방법2) 가장 보편적인 방법
+	//$(document).ready(function(){
+	//	$("body").css("background","red");
+	//});
+	
+	//방법3) document를 생략하는 방법
+	//$().ready(function(){
+	//	$("body").css("background","blue");
+	//});
+	
+	//방법4) 모든 요소를 생략하는 방법
+	$(function(){
+		$("body").css("background","green");
+	});
+</script>
+
+</body>
+</html>
