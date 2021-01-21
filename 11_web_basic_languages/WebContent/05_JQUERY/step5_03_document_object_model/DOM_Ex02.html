@@ -22,13 +22,16 @@ $(document).ready(function(){
 		alert("변경전: "+$("#target").val()); //target id의 value값을 가져온다.
 		$("#target").val("변경된 데이터"); 		//target id의 value값을 지정한다.
 		alert("변경후: "+$("#target").val()); 
+		
+		//참고)this 
+		alert("참고: " +$(this).text());
 	});
 });
 
 </script>
 </head>
 <body>
-
+	
 	<input type="text" id="target" value="초깃값">
 	<button id="button">클릭</button>
 
