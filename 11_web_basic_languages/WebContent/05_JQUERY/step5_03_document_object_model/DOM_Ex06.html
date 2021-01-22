@@ -24,11 +24,42 @@
 			
 			//예시2) 선택된 라디오 박스의 값을 다른 값으로 변경하기
 			var changeYear=prompt("변경하고 싶은 연도");
-			$(":radio[name='radioBox']").val(changeYear).prop("checked",true);
+			$(":radio[name='radioBox'][value='"+changeYear+"']").prop("checked",true);
 			
 			//예시3) 라디오 박스를 비활성화 하기
 			$(":radio[name='radioBox']").prop("disabled",true);
+			
 		});
+		
+		$("#changeCheckBox").click(function(){
+			//예시1) 체크 박스 관련 정보 확인하기
+			alert("전체체크박스의 개수: "+$(" :checkbox[name='checkBoxTest']").length);
+			alert("선택된 체크박스의 개수: "+$(" :checkbox[name='checkBoxTest']:checked").length);
+			
+			//예시2) 선택된 체크 박스의 value를 가져오기
+			$(":checkbox[name='checkBoxTest']:checked").each(function(){
+				alert("선택된 체크박스의 value: "+$(this).val());
+			});
+			
+			//예시3) 선택된 체크 박스의 값을 다른 값으로 변경하기
+			var changeCnt=prompt("수정하고 싶은 체크박스의 개수");
+			
+			$(":checkbox[name='checkBoxTest']").prop("checked",false); //(참고)전체 체크 해지
+			
+			for(var i=0; i<changeCnt; i++){
+				var changeYear = prompt("수정하고 싶은 연도: ");
+				$("#year"+changeYear).prop("checked",true);
+				
+			}
+			
+			//예시4) 체크 박스를 비활성화 하기
+			$(":checkbox[name='checkBoxTest']").prop("disabled",true);
+			
+			
+		});
+		
+		
+		
 	});
 </script>
 </head>
