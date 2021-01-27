@@ -8,7 +8,7 @@
 	<!-- DB 접속을 위한 설정정보 입력 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">				
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://localhost:3306/board_Ex1?serverTimezone=UTC"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/spring_board_Ex1?serverTimezone=UTC"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="1234"></property>
 	</bean>
