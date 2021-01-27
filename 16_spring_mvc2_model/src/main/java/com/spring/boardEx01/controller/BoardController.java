@@ -2,6 +2,8 @@ package com.spring.boardEx01.controller;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +17,7 @@ import com.spring.boardEx01.service.BoardService;
 public class BoardController {
 	
 	
-	@Autowired						//DI 의존성 주입
+	@Inject					//DI 의존성 주입
 	private BoardService boardService; //Service 호출을 위한 객체 생성
 	
 	//value에는 url주소를 명시, method는 요청타입을 명시
@@ -40,9 +42,10 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/boardWrite",method=RequestMethod.POST)
-	public String boardWriteAction() {
+	public String boardWriteAction(BoardDTO bdto) {
 		
-		return "";
+		boardService.insert(bdto);
+		return "redirect:boardList";   //redirect:해당 페이지로 이동한다.
 	}
 	
 	

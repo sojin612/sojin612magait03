@@ -21,4 +21,10 @@ public class BoardDAOImpl implements BoardDAO {
 		return session.selectList("com.spring.mapper.BoardMapper.getAllBoard");
 	}
 
+	@Override
+	public void insertBoard(BoardDTO bdto) {
+		session.insert("com.spring.mapper.BoardMapper.insertBoard",bdto);
+		
+	}
+
 }
