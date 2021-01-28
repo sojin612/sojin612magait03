@@ -17,14 +17,14 @@ public class BoardServiceImpl implements BoardService {
 	
 	
 	@Override
-	public List<BoardDTO> listAll() {
+	public List<BoardDTO> listAll() throws Exception{
 		
 		return dao.getAllBoard();
 	}
 
 
 	@Override
-	public void insert(BoardDTO bdto) {
+	public void insert(BoardDTO bdto) throws Exception{
 		dao.insertBoard(bdto);
 	}
 
