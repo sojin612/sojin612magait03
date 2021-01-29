@@ -27,4 +27,29 @@ public class BoardDAOImpl implements BoardDAO {
 		
 	}
 
+	@Override
+	public BoardDTO getOneBoard(int num) throws Exception {
+		
+		return session.selectOne("com.spring.mapper.BoardMapper.getOneboard", num);
+	}
+
+	@Override
+	public void increaseReadCount(int num) throws Exception {
+		session.update("com.spring.mapper.BoardMapper.increaseReadCount", num);
+		
+	}
+
+	@Override
+	public void updateBoard(BoardDTO bdto) throws Exception {
+		
+		session.update("com.spring.mapper.BoardMapper.updateBoard", bdto);
+	}
+
+	@Override
+	public BoardDTO validateUserCheck(BoardDTO bdto) throws Exception {
+		
+		return session.selectOne("com.spring.mapper.BoardMapper.validateUserCheck",bdto);
+		
+	}
+
 }

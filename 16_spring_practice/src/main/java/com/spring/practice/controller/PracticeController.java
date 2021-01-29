@@ -23,22 +23,22 @@ public class PracticeController {
 		return "practice/main";
 	}
 	
-	@RequestMapping(value="boardList")
+	@RequestMapping(value="/boardList")
 	public String boardList(Model model) throws Exception{
-		List<PracticeDTO> boardList = practiceService.listAll();
+		List<PracticeDTO> boardList= practiceService.listAll();
 		model.addAttribute("boardList",boardList);
 		return "practice/bList";
 	}
 	
-	@RequestMapping(value="boardWrite", method=RequestMethod.GET)
-	public String boardWriteForm(){
-		
+	@RequestMapping(value="/boardWrite", method=RequestMethod.GET)
+	public String boardWriteForm() throws Exception{
 		return "practice/bWrite";
 	}
 	
-	@RequestMapping(value="boardWrite", method=RequestMethod.POST)
+	@RequestMapping(value="/boardWrite", method=RequestMethod.POST)
 	public String boardWriteAction(PracticeDTO pdto) throws Exception{
 		practiceService.insert(pdto);
-		return "redirect:boardList";
+		return "redirect:boarList";
 	}
+	
 }

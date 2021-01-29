@@ -14,20 +14,19 @@ public class PracticeServiceImpl implements PracticeService {
 
 	@Inject
 	private PracticeDAO dao;
-
+	
 	@Override
 	public List<PracticeDTO> listAll() throws Exception {
-		// TODO Auto-generated method stub
+		
 		return dao.getAllBoard();
 	}
 
-
 	@Override
 	public void insert(PracticeDTO pdto) throws Exception {
-		// TODO Auto-generated method stub
-		dao.insert(pdto);
+		dao.insertBoard(pdto);
+		
 	}
-	
+
 	
 	
 	

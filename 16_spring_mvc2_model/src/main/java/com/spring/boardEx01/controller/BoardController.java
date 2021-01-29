@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.boardEx01.dto.BoardDTO;
 import com.spring.boardEx01.service.BoardService;
@@ -48,6 +49,25 @@ public class BoardController {
 		return "redirect:boardList";   //redirect:해당 페이지로 이동한다.
 	}
 	
+	@RequestMapping(value="/boardInfo")
+	public String boardInfo(@RequestParam("num") int num, Model model) throws Exception{ //모델은 객체를 여기서만듬
+		BoardDTO bdto=boardService.read(num);
+		model.addAttribute("bdto",bdto); //모델은 화면으로 넘겨주는 역할
+		return "boardEx01/bInfo";
+	}
 	
+	@RequestMapping(value="/boardUpdate", method=RequestMethod.GET)
+	public String boardUpdateForm(@RequestParam("num") int num, Model model) throws Exception{
+		BoardDTO bdto=boardService.read(num);
+		model.addAttribute("bdto",bdto);
+		return "boardEx01/bUpdate";	
+	}
+	
+	@RequestMapping(value="/boardUpdate", method=RequestMethod.POST)
+	public String boardUpdate(BoardDTO bdto, Model model) throws Exception{
+		if(boardService.modify(bdto)) model.addAttribute("success" , true);
+		else model.addAttribute("success" , false);
+		return "boardEx01/bUpdatePro";	
+	}
 	
 }

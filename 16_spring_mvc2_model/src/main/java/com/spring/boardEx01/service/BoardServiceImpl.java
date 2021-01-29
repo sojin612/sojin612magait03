@@ -29,6 +29,27 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 
+	@Override
+	public BoardDTO read(int num) throws Exception {
+		dao.increaseReadCount(num);
+		return dao.getOneBoard(num);
+	}
+
+
+	@Override
+	public boolean modify(BoardDTO bdto) throws Exception {
+		boolean isSucceed= false;
+		if(dao.validateUserCheck(bdto)!=null) {
+			dao.updateBoard(bdto);
+			isSucceed=true;
+		}
+		return false;
+	}
+
+
+	
+
+
 
 
 
