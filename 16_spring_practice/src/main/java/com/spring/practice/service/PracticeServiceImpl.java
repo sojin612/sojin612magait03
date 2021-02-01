@@ -27,6 +27,33 @@ public class PracticeServiceImpl implements PracticeService {
 		
 	}
 
+	@Override
+	public PracticeDTO read(int num) throws Exception {
+		dao.increaseReadCount(num);
+		return dao.getOneBoard(num);
+	}
+
+	@Override
+	public boolean modify(PracticeDTO pdto) throws Exception {
+		boolean isSucess= false;
+		if(dao.validateUserCheck(pdto)!=null) {
+			dao.update(pdto);
+			isSucess=true;
+		}
+		return isSucess;
+	}
+
+	@Override
+	public boolean remove(PracticeDTO pdto) throws Exception {
+		boolean isSucess = false;
+		if(dao.validateUserCheck(pdto)!=null) {
+			dao.delete(pdto.getNum());
+			isSucess = true;
+		}
+		
+		return isSucess;
+	}
+
 	
 	
 	

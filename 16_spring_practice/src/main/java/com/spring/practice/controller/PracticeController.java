@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.practice.dto.PracticeDTO;
 import com.spring.practice.service.PracticeService;
@@ -38,7 +39,43 @@ public class PracticeController {
 	@RequestMapping(value="/boardWrite", method=RequestMethod.POST)
 	public String boardWriteAction(PracticeDTO pdto) throws Exception{
 		practiceService.insert(pdto);
-		return "redirect:boarList";
+		return "redirect:boardList";
 	}
 	
+	@RequestMapping(value="boardInfo")
+	public String boardInfo(@RequestParam("num") int num, Model model) throws Exception{
+		PracticeDTO pdto=practiceService.read(num);
+		model.addAttribute("bdto",pdto);
+		return "practice/bInfo";
+	}
+	
+	@RequestMapping(value="/boardUpdate",method=RequestMethod.GET)
+	public String boardUpdateForm(@RequestParam("num") int num, Model model) throws Exception{
+		PracticeDTO pdto=practiceService.read(num);
+		model.addAttribute("bdto",pdto);
+		return "practice/bUpdate";
+	}
+	
+	@RequestMapping(value="boardUpdate", method=RequestMethod.POST)
+	public String boardUpdateAction(PracticeDTO pdto, Model model) throws Exception{
+		boolean isSucess=practiceService.modify(pdto);
+		if(isSucess) model.addAttribute("sucess", true);
+		else model.addAttribute("sucess", false);
+		return "practice/bUpdatePro";
+	}
+	
+	@RequestMapping(value="boardDelete", method=RequestMethod.GET)
+	public String boardDeleteForm(@RequestParam("num")int num, Model model)throws Exception{
+		PracticeDTO pdto=practiceService.read(num);
+		model.addAttribute("bdto",pdto);
+		return "practice/bDelete";
+	}
+	
+	@RequestMapping(value="boardDelete", method=RequestMethod.POST)
+	public String boardDelete(PracticeDTO pdto, Model model)throws Exception{
+		boolean isSucess=practiceService.remove(pdto);
+		if(isSucess) model.addAttribute("secess",true);
+		else model.addAttribute("secess",false);
+		return "practice/bDeletePro";
+	}
 }

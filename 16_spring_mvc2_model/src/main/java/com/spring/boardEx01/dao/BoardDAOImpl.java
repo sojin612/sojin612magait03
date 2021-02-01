@@ -52,4 +52,10 @@ public class BoardDAOImpl implements BoardDAO {
 		
 	}
 
+	@Override
+	public void deleteBoard(int num) throws Exception {
+		session.delete("com.spring.mapper.BoardMapper.deleteBoard",num);
+		
+	}
+
 }

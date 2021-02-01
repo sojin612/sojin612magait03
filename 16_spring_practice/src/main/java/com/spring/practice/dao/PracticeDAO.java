@@ -13,4 +13,9 @@ public interface PracticeDAO {
 	
 	public List<PracticeDTO> getAllBoard() throws Exception;
 	public void insertBoard(PracticeDTO pdto) throws Exception;
+	public PracticeDTO getOneBoard(int num) throws Exception;
+	public void increaseReadCount(int num) throws Exception;
+	public void update(PracticeDTO pdto) throws Exception;
+	public PracticeDTO validateUserCheck(PracticeDTO pdto) throws Exception;
+	public void delete(int num) throws Exception;
 }

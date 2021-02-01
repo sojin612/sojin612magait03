@@ -66,8 +66,26 @@ public class BoardController {
 	@RequestMapping(value="/boardUpdate", method=RequestMethod.POST)
 	public String boardUpdate(BoardDTO bdto, Model model) throws Exception{
 		if(boardService.modify(bdto)) model.addAttribute("success" , true);
-		else model.addAttribute("success" , false);
+		else {model.addAttribute("success" , false);}
 		return "boardEx01/bUpdatePro";	
+	}
+	
+	@RequestMapping(value="/boardDelete", method=RequestMethod.GET)
+	public String deleteBoardForm(@RequestParam("num") int num, Model model) throws Exception{
+		BoardDTO bdto=boardService.read(num);
+		model.addAttribute("bdto",bdto);
+		return "boardEx01/bDelete";
+	}
+	
+	@RequestMapping(value="/boardDelete", method=RequestMethod.POST)
+	public String deleteBoard(BoardDTO bdto, Model model) throws Exception{
+		boolean isSucceed=boardService.remove(bdto);
+		if(isSucceed) {model.addAttribute("success",true);}
+		else {
+			
+			model.addAttribute("success",false);
+		}
+		return "boardEx01/bDeletePro";
 	}
 	
 }

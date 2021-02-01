@@ -43,7 +43,19 @@ public class BoardServiceImpl implements BoardService {
 			dao.updateBoard(bdto);
 			isSucceed=true;
 		}
-		return false;
+		return isSucceed;
+	}
+
+
+	@Override
+	public boolean remove(BoardDTO bdto) throws Exception {
+		boolean isSucceed = false;
+		if(dao.validateUserCheck(bdto)!=null) {
+			dao.deleteBoard(bdto.getNum());
+			isSucceed=true;
+		}
+		
+		return isSucceed;
 	}
 
 
