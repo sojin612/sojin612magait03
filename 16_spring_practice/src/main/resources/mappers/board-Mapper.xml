@@ -29,15 +29,6 @@
 			#{content})
 	</insert>
 	
-	<update id="increaseReadCount">
-		update from 
-			board
-		set
-			read_count=#{read_count+1}
-		where
-			num=#{num}
-	</update>
-	
 	<select id="getOneBoard" resultType="com.spring.practice.dto.PracticeDTO">
 		select 
 			*
@@ -56,21 +47,29 @@
 			num=#{num} and password=#{password}	
 	</select>
 	
+	<update id="increaseReadCount">
+		update
+			board
+		set
+			read_count=read_count+1
+		where
+			num=#{num}		
+	</update>
+	
 	<update id="update">
 		update
 			board
 		set
-			subject=#{subject}
-			content=#{content}
-		where
+			subject=#{subject},
+			content=#{content}	
+		where 
 			num=#{num}	
 	</update>
 	
 	<delete id="delete">
-		delete 
-		from
+		delete from
 			board
 		where
-			num=#{num}
+			num=#{num}	
 	</delete>
 </mapper>		

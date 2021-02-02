@@ -11,6 +11,7 @@ import com.spring.practice.dto.PracticeDTO;
 public interface PracticeDAO {
 
 	
+
 	public List<PracticeDTO> getAllBoard() throws Exception;
 	public void insertBoard(PracticeDTO pdto) throws Exception;
 	public PracticeDTO getOneBoard(int num) throws Exception;

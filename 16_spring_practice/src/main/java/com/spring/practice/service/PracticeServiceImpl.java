@@ -20,6 +20,7 @@ public class PracticeServiceImpl implements PracticeService {
 		
 		return dao.getAllBoard();
 	}
+	
 
 	@Override
 	public void insert(PracticeDTO pdto) throws Exception {
@@ -33,26 +34,30 @@ public class PracticeServiceImpl implements PracticeService {
 		return dao.getOneBoard(num);
 	}
 
+
 	@Override
 	public boolean modify(PracticeDTO pdto) throws Exception {
-		boolean isSucess= false;
+		boolean isSuccess= false;
 		if(dao.validateUserCheck(pdto)!=null) {
 			dao.update(pdto);
-			isSucess=true;
+			isSuccess=true;
 		}
-		return isSucess;
+		return isSuccess;
 	}
 
 	@Override
 	public boolean remove(PracticeDTO pdto) throws Exception {
-		boolean isSucess = false;
+		boolean isSuccess = false;
 		if(dao.validateUserCheck(pdto)!=null) {
 			dao.delete(pdto.getNum());
-			isSucess = true;
+			isSuccess= true;
 		}
-		
-		return isSucess;
+		return isSuccess;
 	}
+
+
+
+
 
 	
 	

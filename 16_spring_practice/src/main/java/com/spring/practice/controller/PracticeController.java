@@ -25,8 +25,8 @@ public class PracticeController {
 	}
 	
 	@RequestMapping(value="/boardList")
-	public String boardList(Model model) throws Exception{
-		List<PracticeDTO> boardList= practiceService.listAll();
+	public String boardList(Model model) throws Exception {
+		List<PracticeDTO> boardList = practiceService.listAll();
 		model.addAttribute("boardList",boardList);
 		return "practice/bList";
 	}
@@ -42,40 +42,41 @@ public class PracticeController {
 		return "redirect:boardList";
 	}
 	
-	@RequestMapping(value="boardInfo")
+	@RequestMapping(value="/boardInfo")
 	public String boardInfo(@RequestParam("num") int num, Model model) throws Exception{
 		PracticeDTO pdto=practiceService.read(num);
 		model.addAttribute("bdto",pdto);
 		return "practice/bInfo";
 	}
 	
-	@RequestMapping(value="/boardUpdate",method=RequestMethod.GET)
-	public String boardUpdateForm(@RequestParam("num") int num, Model model) throws Exception{
+	@RequestMapping(value="/boardUpdate", method=RequestMethod.GET)
+	public String boardUpdateForm(@RequestParam("num")int num, Model model) throws Exception{
 		PracticeDTO pdto=practiceService.read(num);
 		model.addAttribute("bdto",pdto);
 		return "practice/bUpdate";
 	}
 	
-	@RequestMapping(value="boardUpdate", method=RequestMethod.POST)
+	@RequestMapping(value="/boardUpdate", method=RequestMethod.POST)
 	public String boardUpdateAction(PracticeDTO pdto, Model model) throws Exception{
-		boolean isSucess=practiceService.modify(pdto);
-		if(isSucess) model.addAttribute("sucess", true);
-		else model.addAttribute("sucess", false);
+		boolean isSuccess=practiceService.modify(pdto);
+		if(isSuccess) model.addAttribute("success",true);
+		else model.addAttribute("success",false);
 		return "practice/bUpdatePro";
 	}
 	
-	@RequestMapping(value="boardDelete", method=RequestMethod.GET)
+	@RequestMapping(value="/boardDelete", method=RequestMethod.GET)
 	public String boardDeleteForm(@RequestParam("num")int num, Model model)throws Exception{
 		PracticeDTO pdto=practiceService.read(num);
-		model.addAttribute("bdto",pdto);
+		model.addAttribute("bdto", pdto);
 		return "practice/bDelete";
 	}
 	
-	@RequestMapping(value="boardDelete", method=RequestMethod.POST)
-	public String boardDelete(PracticeDTO pdto, Model model)throws Exception{
-		boolean isSucess=practiceService.remove(pdto);
-		if(isSucess) model.addAttribute("secess",true);
-		else model.addAttribute("secess",false);
+	@RequestMapping(value="/boardDelete", method=RequestMethod.POST)
+	public String boardDeleteAction(PracticeDTO pdto,Model model) throws Exception{
+		boolean isSuccess=practiceService.remove(pdto);
+		if(isSuccess) model.addAttribute("success",true);
+		else model.addAttribute("success",false);
 		return "practice/bDeletePro";
 	}
+	
 }
