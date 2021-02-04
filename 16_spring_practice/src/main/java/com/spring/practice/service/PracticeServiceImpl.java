@@ -33,14 +33,13 @@ public class PracticeServiceImpl implements PracticeService {
 		dao.increaseReadCount(num);
 		return dao.getOneBoard(num);
 	}
-
-
+	
 	@Override
 	public boolean modify(PracticeDTO pdto) throws Exception {
-		boolean isSuccess= false;
+		boolean isSuccess = false;
 		if(dao.validateUserCheck(pdto)!=null) {
-			dao.update(pdto);
-			isSuccess=true;
+			dao.updateBoard(pdto);
+			isSuccess= true;
 		}
 		return isSuccess;
 	}
@@ -54,6 +53,13 @@ public class PracticeServiceImpl implements PracticeService {
 		}
 		return isSuccess;
 	}
+
+
+
+
+
+
+
 
 
 

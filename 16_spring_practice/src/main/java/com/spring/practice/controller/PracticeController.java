@@ -30,37 +30,34 @@ public class PracticeController {
 		model.addAttribute("boardList",boardList);
 		return "practice/bList";
 	}
-	
-	@RequestMapping(value="/boardWrite", method=RequestMethod.GET)
-	public String boardWriteForm() throws Exception{
+	@RequestMapping(value="/boardWrite",method=RequestMethod.GET)
+	public String boardWriteForm()throws Exception{
 		return "practice/bWrite";
 	}
-	
-	@RequestMapping(value="/boardWrite", method=RequestMethod.POST)
-	public String boardWriteAction(PracticeDTO pdto) throws Exception{
+	@RequestMapping(value="/boardWrite",method=RequestMethod.POST)
+	public String boardWriteAction(PracticeDTO pdto)throws Exception{
 		practiceService.insert(pdto);
 		return "redirect:boardList";
 	}
-	
 	@RequestMapping(value="/boardInfo")
-	public String boardInfo(@RequestParam("num") int num, Model model) throws Exception{
+	public String boardInfo(@RequestParam("num")int num, Model model)throws Exception{
 		PracticeDTO pdto=practiceService.read(num);
 		model.addAttribute("bdto",pdto);
-		return "practice/bInfo";
+		return "practice/bInfo";		
 	}
 	
-	@RequestMapping(value="/boardUpdate", method=RequestMethod.GET)
-	public String boardUpdateForm(@RequestParam("num")int num, Model model) throws Exception{
+	@RequestMapping(value="/boardUpdate",method=RequestMethod.GET)
+	public String boardUpdateForm(@RequestParam("num")int num,Model model) throws Exception{
 		PracticeDTO pdto=practiceService.read(num);
 		model.addAttribute("bdto",pdto);
 		return "practice/bUpdate";
 	}
 	
-	@RequestMapping(value="/boardUpdate", method=RequestMethod.POST)
-	public String boardUpdateAction(PracticeDTO pdto, Model model) throws Exception{
+	@RequestMapping(value="/boardUpdate",method=RequestMethod.POST)
+	public String boardUpdateAction(PracticeDTO pdto,Model model) throws Exception{
 		boolean isSuccess=practiceService.modify(pdto);
 		if(isSuccess) model.addAttribute("success",true);
-		else model.addAttribute("success",false);
+		else model.addAttribute("success", false);
 		return "practice/bUpdatePro";
 	}
 	

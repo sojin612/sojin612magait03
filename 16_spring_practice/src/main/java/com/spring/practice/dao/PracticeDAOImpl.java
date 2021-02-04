@@ -23,14 +23,21 @@ public class PracticeDAOImpl implements PracticeDAO {
 	
 	@Override
 	public void insertBoard(PracticeDTO pdto) throws Exception {
-		session.insert("com.spring.mapper.BoardMapper2.insertBoard",pdto);
+		session.update("com.spring.mapper.BoardMapper2.insertBoard",pdto);
 		
 	}
 
+	
 	@Override
 	public PracticeDTO getOneBoard(int num) throws Exception {
 		
 		return session.selectOne("com.spring.mapper.BoardMapper2.getOneBoard",num);
+	}
+	
+	@Override
+	public void increaseReadCount(int num) throws Exception {
+		session.update("com.spring.mapper.BoardMapper2.increaseReadCount",num);
+		
 	}
 
 	
@@ -40,16 +47,11 @@ public class PracticeDAOImpl implements PracticeDAO {
 		return session.selectOne("com.spring.mapper.BoardMapper2.validateUserCheck", pdto);
 		
 	}
-
-	@Override
-	public void increaseReadCount(int num) throws Exception {
-		session.update("com.spring.mapper.BoardMapper2.increaseReadCount",num);
-	}
 	
 	@Override
-	public void update(PracticeDTO pdto) throws Exception {
-		session.update("com.spring.mapper.BoardMapper2.update",pdto);
+	public void updateBoard(PracticeDTO pdto) throws Exception {
 		
+		session.update("com.spring.mapper.BoardMapper2.updateBoard",pdto);
 	}
 	
 
@@ -58,6 +60,10 @@ public class PracticeDAOImpl implements PracticeDAO {
 		session.update("com.spring.mapper.BoardMapper2.delete",num);
 		
 	}
+
+
+
+
 
 
 
