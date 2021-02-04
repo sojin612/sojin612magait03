@@ -8,7 +8,7 @@ class LinkedList{
 	}
 	public void insertMiddleNode(ListNode pre, String data){       
 		ListNode newNode = new ListNode(data);
-		newNode.link = pre.link;
+		newNode.link = pre.link;//(주소)
 		pre.link = newNode;
 	}
 	public void insertLastNode(String data){
